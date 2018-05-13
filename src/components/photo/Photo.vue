@@ -1,7 +1,7 @@
 <template>
-<ul>
-  <li v-for="item in photos" :key="item.id">
-    <img :src="item.src "alt="">
+<ul class="clearfix">
+  <li v-for="(item,index) in photos" :key="index" @click="toDetail(index)">
+     <img :src="item.src "alt="">
   </li>
 </ul>
 </template>
@@ -13,7 +13,7 @@
     store,
     created(){
       this.$store.commit('routerLinks',{
-        color:"black",
+        color:"#9843A5",
         title:"图片",
       });
       this.getData();
@@ -32,17 +32,22 @@
               }).catch((res)=>{
                 console.log("错误");
             })
-        }
+        },
+      toDetail(index){
+            this.$router.push({name:'PhotoDetail',params:{photoId:index}})
+      },
     }
   })
 </script>
 
 <style scoped>
-ul{
-
+.clearfix:after{
+  content:"";
+  display: block;
+  clear:both;
 }
   ul li{
-float: left;
+   float: left;
     width: 50%;
   }
 ul li img{
