@@ -1,11 +1,18 @@
 <template>
-  <swipe class="my-swipe">
-    <swipe-item class="slide1"><img src="@/assets/img/1.jpg" alt=""></swipe-item>
-    <swipe-item class="slide2"><img src="@/assets/img/2.jpg" alt=""></swipe-item>
-    <swipe-item class="slide3"><img src="@/assets/img/3.jpg" alt=""></swipe-item>
-    <swipe-item class="slide3"><img src="@/assets/img/4.jpg" alt=""></swipe-item>
-    <swipe-item class="slide3"><img src="@/assets/img/5.jpg" alt=""></swipe-item>
-  </swipe>
+  <div>
+    <swipe class="my-swipe">
+      <swipe-item class="slide1"><img src="@/assets/img/1.jpg" alt=""></swipe-item>
+      <swipe-item class="slide2"><img src="@/assets/img/2.jpg" alt=""></swipe-item>
+      <swipe-item class="slide3"><img src="@/assets/img/3.jpg" alt=""></swipe-item>
+      <swipe-item class="slide3"><img src="@/assets/img/4.jpg" alt=""></swipe-item>
+      <swipe-item class="slide3"><img src="@/assets/img/5.jpg" alt=""></swipe-item>
+    </swipe>
+    <router-link to="/bookdetail">
+      <button>Book Detail</button>
+
+    </router-link>
+  </div>
+
 </template>
 
 <script>
@@ -35,4 +42,10 @@
   font-size: 30px;
   text-align: center;
 }
+  button  {
+    background: #000;
+    color: #dddddd;
+ position: relative;
+    left: 45%;
+  }
 </style>

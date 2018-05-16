@@ -1,7 +1,7 @@
 <template>
-  <div class="content" :style="styleObj" @click="toPhoto">
 
-  </div>
+    <v-touch @tap="toPhoto" @swipeleft="onSwipeLeft" @swiperight="onSwipeRigth" class="content" :style="styleObj">
+    </v-touch>
 </template>
 
 <script>
@@ -13,10 +13,13 @@
     store,
     data(){
         return{
-          styleObj:{
-            background: `#000 url("/static/img/${this.$route.params.photoId+1}.jpg") no-repeat center/contain`,
-          },
+          thisIndex:this.$route.params.photoId+1,
         }
+    },
+    computed:{
+      styleObj(){
+          return `background: #000 url('/static/img/${this.thisIndex}.jpg') no-repeat center/contain;`
+      }
     },
     created(){
       this.$store.commit('routerLinks',{
@@ -26,10 +29,21 @@
     },
     methods:{
       toPhoto(){
-          this.$router.push('/photo')
-      }
-    },
+          this.$router.push('/photo');
+      },
 
+    onSwipeLeft(){
+      if(this.thisIndex==0){
+
+      }else{
+        this.thisIndex++;
+      }
+
+    },
+    onSwipeRigth(){
+      this.thisIndex--;
+    }
+    },
 
   })
 </script>
